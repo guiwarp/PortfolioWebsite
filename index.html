@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portfolio — guiwarp</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+<!-- ================= INTRO ================= -->
+<div class="intro" id="intro">
+  <canvas id="introCanvas"></canvas>
+  <div class="intro-noise"></div>
+  <div class="intro-scanlines"></div>
+
+  <div class="intro-quote-wrap">
+    <div class="intro-quote-mark">"</div>
+    <blockquote class="intro-quote" id="introQuote"></blockquote>
+    <cite class="intro-author" id="introAuthor"></cite>
+  </div>
+
+  <div class="intro-loader">
+    <div class="intro-loader-info">
+      <span class="intro-loader-label">INITIALIZING</span>
+      <span class="intro-loader-percent" id="introPercent">0%</span>
+    </div>
+    <div class="intro-loader-track">
+      <div class="intro-loader-fill" id="introFill"></div>
+      <div class="intro-loader-glow" id="introGlow"></div>
+    </div>
+    <div class="intro-loader-steps" id="introSteps"></div>
+  </div>
+
+  <div class="intro-flash" id="introFlash"></div>
+  <div class="intro-curtain" id="introCurtain"></div>
+</div>
+
+<!-- ================= CURSEUR ================= -->
+<div class="cursor-layer" id="cursorLayer">
+  <canvas id="cursorTrail"></canvas>
+</div>
+<div class="cursor-core" id="cursorCore">
+  <span class="cursor-core-inner" id="cursorCoreInner"></span>
+</div>
+<div class="cursor-halo" id="cursorHalo">
+  <svg viewBox="0 0 100 100" class="cursor-halo-svg">
+    <circle cx="50" cy="50" r="46" class="halo-ring" />
+    <circle cx="50" cy="50" r="46" class="halo-ring-progress" id="haloProgress" />
+  </svg>
+  <span class="cursor-halo-label" id="cursorHaloLabel"></span>
+</div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>
+      <span id="navName">DEV</span>
+      <span class="logo-bracket">/&gt;</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <canvas id="webgl"></canvas>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tagline" data-reveal>// Computer Science Student</p>
+    <h1 class="hero-title" id="heroName">
+      <span class="gradient-text">guiwarp</span>
+    </h1>
+    <h2 class="hero-subtitle" data-reveal>Developer · Gamedev · Web</h2>
+    <p class="hero-desc" data-reveal>
+      I build interactive experiences, games and modern web applications.
+    </p>
+    <div class="hero-actions" data-reveal>
+      <a href="#projects" class="btn btn-primary magnetic">
+        <span>Explore my work</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-ghost magnetic">Contact me</a>
+    </div>
+  </div>
+  <div class="hero-scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">01 / About</span>
+      <h2 class="section-title">Who am I<span class="accent">?</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-terminal" data-reveal>
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="terminal-title">about.md</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">$</span> cat about.md</p>
+            <p class="out"># About</p>
+            <p class="out" id="aboutText"></p>
+            <p class="out">&nbsp;</p>
+            <p class="out">## Interests</p>
+            <ul class="out-list" id="aboutInterests"></ul>
+            <p class="out">&nbsp;</p>
+            <p><span class="prompt">$</span> <span class="cursor-blink">█</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="about-info" data-reveal>
+        <h3>Building things with code.</h3>
+        <p>
+          I explore the intersection of software engineering, interactive media and game
+          development. My focus is on crafting experiences that feel alive — from WebGL
+          shaders to full web apps.
+        </p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value" data-count="12">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" data-count="8">0</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" data-count="3">0</span>
+            <span class="stat-label">Years coding</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">02 / Skills</span>
+      <h2 class="section-title">Tech Stack<span class="accent">.</span></h2>
+    </div>
+    <div class="skills-grid" id="skillsGrid"></div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">03 / Projects</span>
+      <h2 class="section-title">Selected Work<span class="accent">.</span></h2>
+    </div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+<!-- ================= TERMINAL ================= -->
+<section class="section" id="terminal-section">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">04 / Terminal</span>
+      <h2 class="section-title">Interactive Shell<span class="accent">_</span></h2>
+    </div>
+    <div class="terminal-interactive" data-reveal>
+      <div class="terminal-header">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">user@portfolio:~</span>
+      </div>
+      <div class="terminal-body" id="terminalOutput"></div>
+      <div class="terminal-input-row">
+        <span class="prompt">user@portfolio:~$</span>
+        <input type="text" id="terminalInput" autocomplete="off" spellcheck="false" placeholder="type 'help'"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">05 / Timeline</span>
+      <h2 class="section-title">Experience<span class="accent">.</span></h2>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- ================= GITHUB ================= -->
+<section class="section" id="github">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">06 / Activity</span>
+      <h2 class="section-title">GitHub Stats<span class="accent">.</span></h2>
+      <p class="section-note">⚠️ Placeholder data — connect a real API to display live stats.</p>
+    </div>
+    <div class="github-grid">
+      <div class="github-card" data-reveal>
+        <span class="gh-label">Repositories</span>
+        <span class="gh-value" data-count="24">0</span>
+      </div>
+      <div class="github-card" data-reveal>
+        <span class="gh-label">Commits (2025)</span>
+        <span class="gh-value" data-count="487">0</span>
+      </div>
+      <div class="github-card" data-reveal>
+        <span class="gh-label">Stars</span>
+        <span class="gh-value" data-count="42">0</span>
+      </div>
+      <div class="github-card" data-reveal>
+        <span class="gh-label">Top Language</span>
+        <span class="gh-value">JavaScript</span>
+      </div>
+    </div>
+    <div class="contributions" data-reveal>
+      <div class="contrib-header"><span>Contribution activity (placeholder)</span></div>
+      <div class="contrib-grid" id="contribGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-tag">07 / Contact</span>
+      <h2 class="section-title">Let's talk<span class="accent">.</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info" data-reveal>
+        <p class="contact-intro">
+          Got a project in mind, a question, or just want to say hi? Drop a message.
+        </p>
+        <ul class="contact-list" id="contactList"></ul>
+      </div>
+      <form class="contact-form" id="contactForm" data-reveal novalidate>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+          <span class="form-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <span class="form-error"></span>
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <span class="form-error"></span>
+        </div>
+        <button type="submit" class="btn btn-primary magnetic">Send message</button>
+        <p class="form-note">⚠️ Front-end only — no backend is connected.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <canvas id="footerCanvas"></canvas>
+  <div class="footer-content">
+    <div class="footer-brand">
+      <span class="footer-name" id="footerName">guiwarp</span>
+      <span class="footer-tagline">Building things with code.</span>
+    </div>
+    <ul class="footer-links" id="footerLinks"></ul>
+    <span class="footer-copy">© <span id="year"></span> — All rights reserved</span>
+  </div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="projectModal">
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close aria-label="Close">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ================= SCRIPTS (ordre important) ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/cursor.js"></script>
+<script src="js/three-scene.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

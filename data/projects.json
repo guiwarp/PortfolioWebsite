@@ -1,0 +1,64 @@
+{
+  "projects": [
+    {
+      "id": "mythicalbattle",
+      "name": "MythicalBattle",
+      "description": "Prototype web de jeu de construction / free build.",
+      "longDescription": "Un prototype jouable dans le navigateur qui explore les mécaniques de construction en temps réel.",
+      "technologies": ["JavaScript", "HTML", "CSS", "WebGL"],
+      "image": "",
+      "github": "https://github.com/yourusername/mythicalbattle",
+      "demo": ""
+    },
+    {
+      "id": "onechance",
+      "name": "OneChance",
+      "description": "Jeu 2D avec mode histoire et combats.",
+      "longDescription": "Jeu 2D développé sous Unity avec un système de combat au tour par tour.",
+      "technologies": ["Unity", "C#"],
+      "image": "",
+      "github": "https://github.com/yourusername/onechance",
+      "demo": ""
+    },
+    {
+      "id": "clashroyalestats",
+      "name": "Clash Royale Stats",
+      "description": "Site d'analyse de statistiques Clash Royale.",
+      "longDescription": "Application web consommant l'API officielle de Clash Royale.",
+      "technologies": ["HTML", "CSS", "JavaScript", "Node.js"],
+      "image": "",
+      "github": "https://github.com/yourusername/clash-royale-stats",
+      "demo": ""
+    },
+    {
+      "id": "gamingstats",
+      "name": "Gaming Stats",
+      "description": "Portfolio de statistiques gaming.",
+      "longDescription": "Dashboard personnel regroupant les statistiques de plusieurs jeux vidéo.",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "image": "",
+      "github": "https://github.com/yourusername/gaming-stats",
+      "demo": ""
+    },
+    {
+      "id": "projectx",
+      "name": "Project X",
+      "description": "Projet placeholder.",
+      "longDescription": "Description détaillée à personnaliser.",
+      "technologies": ["JavaScript", "Three.js"],
+      "image": "",
+      "github": "",
+      "demo": ""
+    },
+    {
+      "id": "projecty",
+      "name": "Project Y",
+      "description": "Autre projet placeholder.",
+      "longDescription": "Description détaillée à personnaliser.",
+      "technologies": ["Python", "Flask"],
+      "image": "",
+      "github": "",
+      "demo": ""
+    }
+  ]
+}
